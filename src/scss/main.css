@@ -39,6 +39,9 @@ body {
 .WrapperGrid .header .FormWeather {
   cursor: pointer;
 }
+.WrapperGrid .header .FormWeather img {
+  height: 35px;
+}
 .WrapperGrid .header .FormWeather input {
   width: 200px;
   height: 30px;

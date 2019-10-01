@@ -6,6 +6,10 @@ import "../../scss/main.css";
 
 let WeatherBrest = (props) => {
 
+
+
+
+
     if (!props.DataWeather) {
         return null
     }
@@ -31,6 +35,8 @@ let WeatherBrest = (props) => {
                     <div> Атмосферное давление: {pressure} </div>
                     <div> Влажность :{humidity}</div>
                 </div>
+
+
         </div>{/*================*/}
         </body>
     )
