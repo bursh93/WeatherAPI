@@ -2,15 +2,18 @@
 
 
 
-.sliderWrapper{
+.WeatherDataCitySlider{
 
-img {
-  height:322px;
-  width: 122px;
-  display: block;
-  margin: 0 auto;
+  background: black;
+  color: #eceef2;
+
+.weatherCitySlider {
+  color: red;
+  font-size: 30px;
+
 }
-  .sliderBlock {
-    background: blue;
+  .tempSliderCity{
+    color: deepskyblue;
   }
+
 }

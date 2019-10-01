@@ -4,7 +4,7 @@ import "../../scss/main.css";
 
 
 
-let WeatherBrest = (props) => {
+let WeatherVitebsk = (props) => {
 
     if (!props.DataWeather) {
         return null
@@ -26,15 +26,15 @@ let WeatherBrest = (props) => {
                 <span> {country} </span> <img src={src}/>
             </div>
 
-                <div className="DataSliderCity">
-                    <div className="tempSliderCity"> {temp}  </div>
-                    <div> Атмосферное давление: {pressure} </div>
-                    <div> Влажность :{humidity}</div>
-                </div>
+            <div className="DataSliderCity">
+                <div className="tempSliderCity"> {temp}  </div>
+                <div> Атмосферное давление: {pressure} </div>
+                <div> Влажность :{humidity}</div>
+            </div>
         </div>{/*================*/}
         </body>
     )
 }
 
 
-export default WeatherBrest;
+export default WeatherVitebsk;

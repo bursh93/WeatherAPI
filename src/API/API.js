@@ -19,5 +19,19 @@ export const getWeatherWorld=(city="Minsk")=> {
 export const getWeatherBrest=(city="Brest")=> {
     return instance.get(`weather?q=${city}&appid=${API_KEY}&units=metrics`)
 };
+export const getWeatherGrodno=(city="гродно")=> {
+    return instance.get(`weather?q=${city}&appid=${API_KEY}&units=metrics`)
+};
 
+export const getWeatherVitebsk=(city="Vitebsk")=> {
 
+    return instance.get(`weather?q=${city}&appid=${API_KEY}&units=metrics`)
+};
+export const getWeatherMahilyow=(city="Mahilyow")=> {
+
+    return instance.get(`weather?q=${city}&appid=${API_KEY}&units=metrics`)
+};
+export const getWeatherHomel=(city="Homel")=> {
+
+    return instance.get(`weather?q=${city}&appid=${API_KEY}&units=metrics`)
+};

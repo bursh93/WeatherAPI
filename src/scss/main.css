@@ -139,14 +139,16 @@ body {
   height: 55px;
 }
 
-.sliderWrapper img {
-  height: 322px;
-  width: 122px;
-  display: block;
-  margin: 0 auto;
+.WeatherDataCitySlider {
+  background: black;
+  color: #eceef2;
 }
-.sliderWrapper .sliderBlock {
-  background: blue;
+.WeatherDataCitySlider .weatherCitySlider {
+  color: red;
+  font-size: 30px;
+}
+.WeatherDataCitySlider .tempSliderCity {
+  color: deepskyblue;
 }
 
 .popup {

@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherContainer from "./Components/WeatherContainer/WeatherContainer";
+import WeatherContainer from "./Components/WeatherSearch/WeatherSearchContainer";
 import "./scss/main.css";
 
 
