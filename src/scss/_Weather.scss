@@ -1,0 +1,168 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #eceef2;
+}
+
+.ContainerHeader{
+  background: white;
+  margin-bottom: 35px;
+}
+
+.WrapperGrid {
+background: white;
+  width: 1300px;
+  margin: 0 auto;
+
+
+
+
+.header {
+  min-height: 100px;
+  background: white;
+  display: grid;
+  grid-template-columns: 10% 45% 45%;
+
+  vertical-align: middle;
+  margin: 0 auto;
+  align-items: center;
+
+.imgAndName{
+
+  img {
+    height: 40px;
+    width: 50px;
+  }
+  span {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: "Script MT Bold";
+  }
+}
+  .FormWeather {
+      cursor: pointer;
+    input {
+      width: 200px;
+      height: 30px;
+      padding: 7px;
+     outline: navajowhite;
+      &:focus {
+        border: 2px solid #c7c700;
+        box-shadow: 0 0 2px #e5e500;
+      }
+    }
+    button {
+      height: 40px;
+    }
+  }
+
+.RightHeader {
+    .in {
+      background: red;
+      &:hover {
+        background: green;
+      }
+    }
+
+    a{
+      text-decoration: none;
+      text-align: center;
+
+      display: inline-block;
+      &::after {
+        content: "";
+        width: 90%;
+        display: block;
+        height: 2px;
+        background: green;
+        transform: scaleX(0);
+        transition: all 0.4s;
+      }
+      &:hover::after{
+      transform: scaleX(1);
+      }
+  span {
+    margin-right: 16px;
+  }
+    }
+}
+}
+}
+
+
+.weatherData {
+  background: #eceef2;
+  width: 1300px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: sans-serif;
+  color: #b5c0c9;
+
+
+
+  .weatherCity{
+    font-size: 25px;
+    font-weight: 900;
+    color: black;
+    button {
+      padding: 5px;
+      height: 40px;
+      border-radius: 25%;
+      margin-right: 20px;
+      background: white;
+    }
+  }
+
+  .sectionGridWrapper {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-row-gap: 20px;
+    grid-template-areas:
+      "s1  s2"
+      "s3  s3"
+  ;
+    .section1{
+      padding: 10px;
+      grid-area: s1;
+      background: #3b6f80;
+      border-radius: 12px;
+      margin-right: 10px;
+    .temp{
+      font-size: 30px;
+      color: white;
+    }
+    }
+    .section2{
+
+      grid-area: s2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      div {
+        padding: 12px;
+        background: #3b6f80;
+        border-radius: 12px;
+        &:first-child{
+          margin-right: 10px;
+        }
+      }
+    }
+    .section3{
+      grid-area: s3;
+    }
+  }
+}
+
+
+.receive-popup {
+  background: orange;
+  height: 55px;
+}
+
+
+
