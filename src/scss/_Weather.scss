@@ -6,7 +6,48 @@
 }
 body {
   background: #eceef2;
+
 }
+
+
+
+
+.btn-up {
+  position: fixed;
+  right: 50px;
+  bottom: -55px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: #333;
+  z-index: 999;
+  outline: 0;
+  transition:  0.5s;
+}
+.btn-up:after{
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top:2px solid #ccc;
+  border-left: 2px solid #ccc;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+
+
+.btn-up.active{
+  bottom: 50px;
+}
+
+
 
 .ContainerHeader{
   background: white;
@@ -33,9 +74,11 @@ background: white;
 
 .imgAndName{
 
+
   img {
     height: 40px;
     width: 50px;
+
   }
   span {
     font-size: 30px;
@@ -59,21 +102,27 @@ background: white;
       }
     }
     button {
-      height: 40px;
+      height: 30px;
+      width: 33px;
     }
   }
 
 .RightHeader {
+
     .in {
-      background: red;
+      cursor: pointer;
+      padding: 4px;
       &:hover {
-        background: green;
+
+        background: deepskyblue;
       }
     }
 
     a{
       text-decoration: none;
       text-align: center;
+      color: black;
+      font-size: 18px;
 
       display: inline-block;
       &::after {
@@ -81,7 +130,7 @@ background: white;
         width: 90%;
         display: block;
         height: 2px;
-        background: green;
+        background: rosybrown;
         transform: scaleX(0);
         transition: all 0.4s;
       }
@@ -105,7 +154,47 @@ background: white;
   font-family: sans-serif;
   color: #b5c0c9;
 
+  .leftMenu {
+    list-style-type: none;
+    ul{
 
+      li{
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+        &:hover{
+          background: bisque;
+          transition: all 0.7s;
+          &:hover >ul{
+            display: block;
+          }
+        }
+        &::after{
+          content: "";
+          width: 100%;
+          display: block;
+          height: 2px;
+          background: red;
+          transform: scaleX(0);
+          transition: all 0.4s;
+        }
+        &:hover::after{
+          transform: scaleX(1);
+        }
+        ul{
+          background: #3b6f80;
+          position: absolute;
+          right: -100px;
+          top: 0;
+          width: 100px;
+          display: none;
+        }
+        >ul li{
+          border: 1px solid gray;
+        }
+      }
+    }
+  }
 
   .weatherCity{
     font-size: 25px;
@@ -121,7 +210,8 @@ background: white;
   }
 
   .sectionGridWrapper {
-    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 40px;
     display: grid;
     grid-template-columns: 45% 55%;
     grid-row-gap: 20px;

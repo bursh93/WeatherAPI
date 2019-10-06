@@ -35,7 +35,6 @@ componentDidMount() {
     }
 
     render() {
-        console.log(this.state.editMode)
         return (
             <div>
                 <WeatherSearch {...this.props}

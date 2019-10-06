@@ -3,10 +3,14 @@
 
 
 .WeatherDataCitySlider{
-
+  padding: 10px;
+  text-align: center;
   background: black;
   color: #eceef2;
 
+  img {
+    margin-left: 50%;
+  }
 .weatherCitySlider {
   color: red;
   font-size: 30px;

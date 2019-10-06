@@ -1,9 +1,5 @@
 import {
-    getWeatherBrest,
-    getWeatherGrodno,
-    getWeatherHomel,
-    getWeatherMahilyow,
-    getWeatherVitebsk,
+     getWeatherCityBY,
     getWeatherWorld
 } from "../API/API";
 
@@ -16,13 +12,10 @@ const DATA_WEATHER_MAHILYOW = 'DATA_WEATHER_MAHILYOW';
 const DATA_WEATHER_HOMEL = 'DATA_WEATHER_HOMEL';
 
 
+
 let initialState = {
     DataWeather: null,
-    DataWeatherBrest: null,
-    DataWeatherGrodno: null,
-    DataWeatherVitebsk: null,
-    DataWeatherMahilyow: null,
-    DataWeatherHomel: null,
+    Data_Other: [],
     isData:false,  //for data
 }
 const WeatherReducer = (state = initialState, action) => {
@@ -31,20 +24,35 @@ const WeatherReducer = (state = initialState, action) => {
             return { ...state, DataWeather: action.DataWeather,isData:true }
         }
         case DATA_WEATHER_BREST: {
-            return { ...state, DataWeatherBrest: action.DataWeatherBrest }
+            return {
+                ...state, Data_Other: [...state.Data_Other,{city:action.DataWeatherBrest, }]
+            }
         }
         case DATA_WEATHER_GRODNO: {
-            return { ...state, DataWeatherGrodno: action.DataWeatherGrodno }
+            return {
+                ...state,
+                Data_Other: [...state.Data_Other,{ city:action.DataWeatherGrodno,}]
+            }
         }
         case DATA_WEATHER_VITEBSK: {
-            return { ...state, DataWeatherVitebsk: action.DataWeatherVitebsk }
+            return {
+                ...state,
+                Data_Other: [...state.Data_Other,{ city:action.DataWeatherVitebsk,}]
+            }
         }
         case DATA_WEATHER_MAHILYOW: {
-            return { ...state, DataWeatherMahilyow: action.DataWeatherMahilyow }
+            return {
+                ...state,
+                Data_Other: [...state.Data_Other,{ city:action.DataWeatherMahilyow,}]
+            }
         }
         case DATA_WEATHER_HOMEL: {
-            return { ...state, DataWeatherHomel: action.DataWeatherHomel }
+            return {
+                ...state,
+                Data_Other: [...state.Data_Other,{ city:action.DataWeatherHomel,}]
+            }
         }
+
         default:
             return state;
     }
@@ -63,8 +71,8 @@ export const getWeatherThunk=(city)=>dispatch=>{
         )
 }
 
-export const getWeatherThunkBrest=(city)=>dispatch=>{
-    getWeatherBrest(city)
+export const getWeatherThunkCityBY=(city)=>dispatch=>{
+    getWeatherCityBY.getWeatherBrest(city)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -74,9 +82,7 @@ export const getWeatherThunkBrest=(city)=>dispatch=>{
                 }
             }
         )
-}
-export const getWeatherThunkGrodno=(city)=>dispatch=>{
-    getWeatherGrodno(city)
+    getWeatherCityBY.getWeatherGrodno(city)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -86,10 +92,7 @@ export const getWeatherThunkGrodno=(city)=>dispatch=>{
                 }
             }
         )
-}
-
-export const getWeatherThunkVitebsk=(city)=>dispatch=>{
-    getWeatherVitebsk(city)
+    getWeatherCityBY.getWeatherVitebsk(city)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -99,11 +102,7 @@ export const getWeatherThunkVitebsk=(city)=>dispatch=>{
                 }
             }
         )
-}
-
-
-export const getWeatherThunkMahilyow=(city)=>dispatch=>{
-    getWeatherMahilyow(city)
+    getWeatherCityBY.getWeatherMahilyow(city)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -113,10 +112,7 @@ export const getWeatherThunkMahilyow=(city)=>dispatch=>{
                 }
             }
         )
-}
-
-export const getWeatherThunkHomel=(city)=>dispatch=>{
-    getWeatherHomel(city)
+    getWeatherCityBY.getWeatherHomel(city)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -126,6 +122,9 @@ export const getWeatherThunkHomel=(city)=>dispatch=>{
                 }
             }
         )
+
+
 }
+
 
 export default WeatherReducer;

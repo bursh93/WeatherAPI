@@ -8,6 +8,39 @@ body {
   background: #eceef2;
 }
 
+.btn-up {
+  position: fixed;
+  right: 50px;
+  bottom: -55px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: #333;
+  z-index: 999;
+  outline: 0;
+  transition: 0.5s;
+}
+
+.btn-up:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.btn-up.active {
+  bottom: 50px;
+}
+
 .ContainerHeader {
   background: white;
   margin-bottom: 35px;
@@ -53,17 +86,21 @@ body {
   box-shadow: 0 0 2px #e5e500;
 }
 .WrapperGrid .header .FormWeather button {
-  height: 40px;
+  height: 30px;
+  width: 33px;
 }
 .WrapperGrid .header .RightHeader .in {
-  background: red;
+  cursor: pointer;
+  padding: 4px;
 }
 .WrapperGrid .header .RightHeader .in:hover {
-  background: green;
+  background: deepskyblue;
 }
 .WrapperGrid .header .RightHeader a {
   text-decoration: none;
   text-align: center;
+  color: black;
+  font-size: 18px;
   display: inline-block;
 }
 .WrapperGrid .header .RightHeader a::after {
@@ -71,7 +108,7 @@ body {
   width: 90%;
   display: block;
   height: 2px;
-  background: green;
+  background: rosybrown;
   transform: scaleX(0);
   transition: all 0.4s;
 }
@@ -90,6 +127,44 @@ body {
   font-family: sans-serif;
   color: #b5c0c9;
 }
+.weatherData .leftMenu {
+  list-style-type: none;
+}
+.weatherData .leftMenu ul li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+.weatherData .leftMenu ul li:hover {
+  background: bisque;
+  transition: all 0.7s;
+}
+.weatherData .leftMenu ul li:hover:hover > ul {
+  display: block;
+}
+.weatherData .leftMenu ul li::after {
+  content: "";
+  width: 100%;
+  display: block;
+  height: 2px;
+  background: red;
+  transform: scaleX(0);
+  transition: all 0.4s;
+}
+.weatherData .leftMenu ul li:hover::after {
+  transform: scaleX(1);
+}
+.weatherData .leftMenu ul li ul {
+  background: #3b6f80;
+  position: absolute;
+  right: -100px;
+  top: 0;
+  width: 100px;
+  display: none;
+}
+.weatherData .leftMenu ul li > ul li {
+  border: 1px solid gray;
+}
 .weatherData .weatherCity {
   font-size: 25px;
   font-weight: 900;
@@ -103,7 +178,8 @@ body {
   background: white;
 }
 .weatherData .sectionGridWrapper {
-  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 40px;
   display: grid;
   grid-template-columns: 45% 55%;
   grid-row-gap: 20px;
@@ -143,8 +219,13 @@ body {
 }
 
 .WeatherDataCitySlider {
+  padding: 10px;
+  text-align: center;
   background: black;
   color: #eceef2;
+}
+.WeatherDataCitySlider img {
+  margin-left: 50%;
 }
 .WeatherDataCitySlider .weatherCitySlider {
   color: red;
@@ -188,6 +269,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.height {
+  margin: auto;
+  width: 1300px;
+  height: 500px;
+  background: deepskyblue;
 }
 
 /*# sourceMappingURL=main.css.map */
