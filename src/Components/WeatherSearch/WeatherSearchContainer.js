@@ -11,6 +11,7 @@ import {ImagesCreator} from "../../redux/ImagesReduser";
 class WeatherSearchContainer extends React.Component {
     state={
         editMode: true,
+        cityStore:''
     }
 
     activeEditMode=()=> {
@@ -28,11 +29,14 @@ class WeatherSearchContainer extends React.Component {
 componentDidMount() {
         this.props.getWeather();
     }
+
     GetWeather = (e) => {
         e.preventDefault();
         let city = e.target.elements.city.value;
         this.props.getWeather(city);
     }
+
+    
 
     render() {
         return (

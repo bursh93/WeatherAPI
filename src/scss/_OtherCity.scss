@@ -1,0 +1,29 @@
+
+
+
+.WrapperCityBy{
+  width: 1300px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+
+.OtherCityBy{
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: cyan;
+  background: black;
+  padding: 10px;
+
+  .name {
+    color: white;
+  }
+  .temp {
+    font-size: 35px;
+    color: white;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import WeatherContainer from "./Components/WeatherSearch/WeatherSearchContainer";
 import "./scss/main.css";
-import ContainerCityBy from "./OtherCity/ContainerCityBY";
+import ContainerCityBy from "./Components/OtherCity/ContainerCityBY";
 
 
 
@@ -13,7 +13,7 @@ function App() {
     <div className="Container">
 
         <WeatherContainer/>
-        <div className='height'></div>
+
         <ContainerCityBy/>
     </div>
   )

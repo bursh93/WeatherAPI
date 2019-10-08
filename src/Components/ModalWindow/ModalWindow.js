@@ -1,5 +1,6 @@
 import React from "react";
 import "../../scss/main.css";
+import swal from "sweetalert";
 
 
 class ModalWindow extends React.Component {
@@ -7,16 +8,10 @@ class ModalWindow extends React.Component {
         SettingeditMode: false,
     }
 
-    SettingEditModeActive() {
-        this.setState({
-            editMode: true
-        })
-    }
 
-    SettingEditModeDelet() {
-        this.setState({
-            editMode: false
-        })
+
+    swalAlert=()=>{
+        swal("Good job!", "You clicked the button!", "success");
     }
 
     render() {
@@ -32,7 +27,7 @@ class ModalWindow extends React.Component {
                                 <input type="text"/><br/>
                                 <label htmlFor=""> email</label>
                                 <input type="text"/> <br/>
-                                <button onClick={this.props.DeleteActiveEditMode} >отправить</button>
+                                <button onClick={this.swalAlert} >отправить</button>
                             </form>
                     </div>
                     </div>

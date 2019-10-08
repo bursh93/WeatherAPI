@@ -1,76 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import "../../scss/main.css";
 import ModalWindow from "../ModalWindow/ModalWindow";
-import SliderSlickCityRB from "../SliderSlick/SliderSlickCityRB";
-import styled from 'styled-components';
-
-
-const DivCompare = styled.div`
-  height: 400px;
-  width: 10%;
-  text-align: center;
-  color: black;
-  background: pink;
-  position:relative;
-  font-size:18px;
-  
-`;
-
-const DivCompareX = styled.div`
-  position:absolute;
-  width:25px;
-  height:25px;
-  top:-20px;
-  right:-15px;
-  cursor:pointer;
-  background:white;
-  color:black;
-  vertical-align: middle;
-    padding-bottom: 15px;
-`;
-
-const Button = styled.button`
-  /* Adapt the colors based on primary prop */
-  background: ${props => props.primary ? "palevioletred" : "white"};
-  color: ${props => props.primary ? "white" : "palevioletred"};
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  outline: 0;   
-    ::before {
-    content: '🚀';
-  }
-  :hover {
-    color: red;
-  }
-`;
+import Form from "./Form";
 
 
 let WeatherSearch = (props) => {
 
-    let [editMode, setEditMode] = useState(false);
-    const activeModeSearch = () => {
-        setEditMode(true);
-    }
-    const deleteeModeSearch = () => {
-        setEditMode(false);
-    }
-    let [editModeCompare, setEditModeCompare] = useState(false);
-
-    const activeModeCompare = () => {
-        setEditModeCompare(true);
-    }
-    const deleteeModeCompare = () => {
-        setEditModeCompare(false);
-    }
 
 
     if (!props.DataWeather) {
         return null
     }
-
     let name = "Погода в " + (props.DataWeather.name) + " ";
     let country = (props.DataWeather.sys.country);
     let temp = "Температура: " + Math.round(props.DataWeather.main.temp - 273) + "с";
@@ -84,30 +24,11 @@ let WeatherSearch = (props) => {
             <div className="WrapperGrid">
                 <div className="header">
                     <div className="imgAndName">
-                        <i className="fa fa-umbrella"></i>
+                        <i className="fa fa-umbrella"> </i>
                         <span>Погода</span>
-
                     </div>
                     <div className="FormWeather">
-                        <form onSubmit={props.GetWeather}>
-                            {!editMode ?
-                                <span onClick={activeModeSearch}>
-                            <i className="fa fa-search"></i> поиск  </span>
-                                :
-                                <span>
-                            <form action="">
-                        <input
-                            type="text" name='city' placeholder='город' required/>
-                            <button>
- <i className="fa fa-search"></i>
-                            </button>
-                        <div className="block-info">
-                        введите любой город
-                        </div>
-                                </form>
-                        </span>
-                            }
-                        </form>
+                        <Form  GetWeather={props.GetWeather}  />
                     </div>
                     <div className="RightHeader">
                         <a href=""><span>прогноз на 10 дней</span></a>
@@ -126,36 +47,9 @@ let WeatherSearch = (props) => {
         <div className="weatherData">{/*================*/}
             <div className="weatherCity">  {name}
                 <span> {country} </span> <img src={src}/>
-                <button onClick={activeModeCompare} onDoubleClick={deleteeModeCompare}
-                        className="weatherButton">рядом со мной
+                <button className="weatherButton">рядом со мной
                 </button>
-                {/*==============work here================*/}
                 <button className="weatherButton">сравнить</button>
-                {editModeCompare ?
-                    <DivCompare>
-                        <div className="leftMenu">
-                            <ul>
-                                <li>рядом со мной
-                                    <ul>
-                                        <li>1</li>
-                                        <li>2</li>
-                                        <li>3</li>
-                                        <li>4</li>
-                                    </ul>
-                                </li>
-                                <li>рядом со мной2</li>
-                                <li>рядом со мной3</li>
-                                <li>рядом со мной4</li>
-
-                            </ul>
-                        </div>
-                        <DivCompareX onClick={deleteeModeCompare}>
-                            &times;
-                        </DivCompareX>
-                    </DivCompare>
-                    : null
-                }
-
             </div>
             <div className="sectionGridWrapper">
                 <div className="section1">
@@ -163,7 +57,6 @@ let WeatherSearch = (props) => {
                     <div> Атмосферное давление: {pressure} </div>
                     <div> Влажность :{humidity}</div>
                 </div>
-
                 <div className="section2">
                     <div>
                         <div>?</div>
@@ -173,12 +66,11 @@ let WeatherSearch = (props) => {
                 </div>
                 <div className="section3">
                     <div>
-                        <SliderSlickCityRB/>
                     </div>
                 </div>
             </div>
         </div>
-        {/*================*/}
+
         </body>
     )
 }

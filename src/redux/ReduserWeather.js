@@ -3,7 +3,6 @@ import {
     getWeatherWorld
 } from "../API/API";
 
-
 const DATA_WEATHER = 'DATA_WEATHER';
 const DATA_WEATHER_BREST = 'DATA_WEATHER_BREST';
 const DATA_WEATHER_GRODNO = 'DATA_WEATHER_GRODNO';
@@ -16,7 +15,7 @@ const DATA_WEATHER_HOMEL = 'DATA_WEATHER_HOMEL';
 let initialState = {
     DataWeather: null,
     Data_Other: [],
-    isData:false,  //for data
+    isData:false,
 }
 const WeatherReducer = (state = initialState, action) => {
     switch(action.type) {

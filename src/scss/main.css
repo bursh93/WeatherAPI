@@ -218,23 +218,6 @@ body {
   height: 55px;
 }
 
-.WeatherDataCitySlider {
-  padding: 10px;
-  text-align: center;
-  background: black;
-  color: #eceef2;
-}
-.WeatherDataCitySlider img {
-  margin-left: 50%;
-}
-.WeatherDataCitySlider .weatherCitySlider {
-  color: red;
-  font-size: 30px;
-}
-.WeatherDataCitySlider .tempSliderCity {
-  color: deepskyblue;
-}
-
 .popup {
   position: fixed;
   left: 0;
@@ -263,6 +246,30 @@ body {
   right: -35px;
   background-color: transparent;
   color: black;
+}
+
+.WrapperCityBy {
+  width: 1300px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+.OtherCityBy {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: cyan;
+  background: black;
+  padding: 10px;
+}
+.OtherCityBy .name {
+  color: white;
+}
+.OtherCityBy .temp {
+  font-size: 35px;
+  color: white;
 }
 
 body {
