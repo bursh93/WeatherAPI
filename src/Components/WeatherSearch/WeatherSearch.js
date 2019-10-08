@@ -1,16 +1,22 @@
 import React from "react";
 import "../../scss/main.css";
 import ModalWindow from "../ModalWindow/ModalWindow";
-import Form from "./Form";
+import FormCity from "./FormCity";
 
+
+
+let CityStore=(props)=>{
+    return <div>
+        {props.city}
+    </div>
+}
 
 let WeatherSearch = (props) => {
-
-
-
     if (!props.DataWeather) {
         return null
     }
+
+    let cityStoreName = props.cityStoreName.map(city => <CityStore city={city.cityStore}/>)
     let name = "Погода в " + (props.DataWeather.name) + " ";
     let country = (props.DataWeather.sys.country);
     let temp = "Температура: " + Math.round(props.DataWeather.main.temp - 273) + "с";
@@ -28,8 +34,10 @@ let WeatherSearch = (props) => {
                         <span>Погода</span>
                     </div>
                     <div className="FormWeather">
-                        <Form  GetWeather={props.GetWeather}  />
+                        <FormCity   SetCityStore={props.SetCityStore} GetWeather={props.GetWeather}/>
+                        <span className="scrollStore">{cityStoreName}</span>
                     </div>
+
                     <div className="RightHeader">
                         <a href=""><span>прогноз на 10 дней</span></a>
                         <a href=""> <span>прогноз на месяц</span></a>
@@ -38,7 +46,7 @@ let WeatherSearch = (props) => {
                             <span onClick={props.activeEditMode} className="in"> Войти
                                     </span>
                             :
-                            <ModalWindow DeleteActiveEditMode={props.DeleteActiveEditMode}/>
+                            <ModalWindow deletMode={props.DeleteActiveEditMode}/>
                         }
                     </div>
                 </div>

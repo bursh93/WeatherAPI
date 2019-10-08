@@ -2,13 +2,12 @@
 import {applyMiddleware, combineReducers, createStore,} from "redux";
 import WeatherReducer from "./ReduserWeather";
 import thunkMiddleware from "redux-thunk"
-import ImagesReduser from "./ImagesReduser";
-
+import {reducer as FormReducer} from "redux-form";
 
 
 let reducers=combineReducers({
         WeatherPage:WeatherReducer,
-        ImagesPage:ImagesReduser,
+        form:FormReducer,
 
 })
 

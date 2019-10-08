@@ -1,38 +1,50 @@
 import React from "react";
 import "../../scss/main.css";
 import swal from "sweetalert";
+import {Field, reduxForm} from "redux-form";
 
 
-class ModalWindow extends React.Component {
-    state = {
-        SettingeditMode: false,
+
+
+
+let LoginForm=(props)=>{
+
+    return <>
+    <div className="popup">
+        <div className="popup-content">
+            <button  onClick={props.deletMode} className="popup-close">&times;</button>
+    <form onSubmit={props.handleSubmit}>
+        <div>
+            login
+            <Field  name="login" component={"input"}/>
+        </div>
+        <div>
+            password
+            <Field   name="password" component={"input"}/>
+        </div>
+        <div>
+            remember me
+            <Field  name="rememberMe" type="checkbox" component={"input"}/>
+        </div>
+        <button>click</button>
+    </form>
+        </div>
+</div>
+    </>
+}
+
+
+const LoginReduxForm=reduxForm({form:'loginForm  '})(LoginForm);
+let ModalWindow=(props)=> {
+
+    let Onsubmit=(values)=>{
+        alert(values.login)
     }
+        return (<div>
 
+            <LoginReduxForm   onSubmit={Onsubmit}  deletMode={props.deletMode}/>
+    </div>)
 
-
-    swalAlert=()=>{
-        swal("Good job!", "You clicked the button!", "success");
-    }
-
-    render() {
-
-        return <>
-                    <div class="popup">
-                    <div class="popup-content">
-                        <button onClick={this.props.DeleteActiveEditMode} className="popup-close">&times;</button>
-                            <form action="">
-                                <label htmlFor="">ваше имя</label>
-                                <input type="text"/><br/>
-                                <label htmlFor="">ваш номер телефона</label>
-                                <input type="text"/><br/>
-                                <label htmlFor=""> email</label>
-                                <input type="text"/> <br/>
-                                <button onClick={this.swalAlert} >отправить</button>
-                            </form>
-                    </div>
-                    </div>
-        </>
-    }
 }
 
 

@@ -9,6 +9,7 @@ const DATA_WEATHER_GRODNO = 'DATA_WEATHER_GRODNO';
 const DATA_WEATHER_VITEBSK = 'DATA_WEATHER_VITEBSK';
 const DATA_WEATHER_MAHILYOW = 'DATA_WEATHER_MAHILYOW';
 const DATA_WEATHER_HOMEL = 'DATA_WEATHER_HOMEL';
+const SITY_STORE = 'SITY_STORE';
 
 
 
@@ -16,9 +17,20 @@ let initialState = {
     DataWeather: null,
     Data_Other: [],
     isData:false,
+    cityStoreName:[{cityStore:null}],
 }
+
+
 const WeatherReducer = (state = initialState, action) => {
     switch(action.type) {
+        case SITY_STORE: {
+            let city=action.cityStore;
+            return {
+                ...state,
+                cityStoreName:[...state.cityStoreName,{cityStore:city}]
+            }
+        }
+
         case DATA_WEATHER: {
             return { ...state, DataWeather: action.DataWeather,isData:true }
         }
@@ -56,8 +68,13 @@ const WeatherReducer = (state = initialState, action) => {
             return state;
     }
 }
-export const getWeatherThunk=(city)=>dispatch=>{
-    getWeatherWorld(city)
+
+export const sendCityStore=(cityStore)=>({type:SITY_STORE, cityStore});
+
+
+
+export const getWeatherThunk=(cityStore)=>dispatch=>{
+    getWeatherWorld(cityStore)
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -71,7 +88,7 @@ export const getWeatherThunk=(city)=>dispatch=>{
 }
 
 export const getWeatherThunkCityBY=(city)=>dispatch=>{
-    getWeatherCityBY.getWeatherBrest(city)
+    getWeatherCityBY.getWeatherBrest()
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -81,7 +98,7 @@ export const getWeatherThunkCityBY=(city)=>dispatch=>{
                 }
             }
         )
-    getWeatherCityBY.getWeatherGrodno(city)
+    getWeatherCityBY.getWeatherGrodno()
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -91,7 +108,7 @@ export const getWeatherThunkCityBY=(city)=>dispatch=>{
                 }
             }
         )
-    getWeatherCityBY.getWeatherVitebsk(city)
+    getWeatherCityBY.getWeatherVitebsk()
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -101,7 +118,7 @@ export const getWeatherThunkCityBY=(city)=>dispatch=>{
                 }
             }
         )
-    getWeatherCityBY.getWeatherMahilyow(city)
+    getWeatherCityBY.getWeatherMahilyow()
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -111,7 +128,7 @@ export const getWeatherThunkCityBY=(city)=>dispatch=>{
                 }
             }
         )
-    getWeatherCityBY.getWeatherHomel(city)
+    getWeatherCityBY.getWeatherHomel()
         .then(resp=>{
                 if(resp.data.cod===200){
                     dispatch({
@@ -122,8 +139,7 @@ export const getWeatherThunkCityBY=(city)=>dispatch=>{
             }
         )
 
-
-}
+};
 
 
 export default WeatherReducer;

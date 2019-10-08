@@ -1,8 +1,8 @@
 import React from "react";
 import WeatherSearch from "./WeatherSearch";
 import {connect} from "react-redux";
-import {getWeatherThunk,} from "../../redux/ReduserWeather";
-import {ImagesCreator} from "../../redux/ImagesReduser";
+import {getWeatherThunk, sendCityStore,} from "../../redux/ReduserWeather";
+
 
 
 
@@ -11,7 +11,7 @@ import {ImagesCreator} from "../../redux/ImagesReduser";
 class WeatherSearchContainer extends React.Component {
     state={
         editMode: true,
-        cityStore:''
+
     }
 
     activeEditMode=()=> {
@@ -30,15 +30,17 @@ componentDidMount() {
         this.props.getWeather();
     }
 
-    GetWeather = (e) => {
-        e.preventDefault();
-        let city = e.target.elements.city.value;
+    GetWeather = (city) => {
         this.props.getWeather(city);
     }
+
+
+
 
     
 
     render() {
+
         return (
             <div>
                 <WeatherSearch {...this.props}
@@ -46,7 +48,8 @@ componentDidMount() {
                                DeleteActiveEditMode={this.DeleteActiveEditMode}
                                editMode={this.state.editMode}
                                GetWeather={this.GetWeather}
-                               ImagesCreator={this.props.ImagesCreator}  />
+                               SetCityStore={this.props.SetCityStore}
+                />
             </div>
 
         );
@@ -57,7 +60,7 @@ let mapStateToProps = (state) => {
 
         DataWeather: state.WeatherPage.DataWeather,
         isData:state.WeatherPage.isData,
-        images:state.ImagesPage.images,
+        cityStoreName:state.WeatherPage.cityStoreName,
     }
 };
 
@@ -66,8 +69,9 @@ let mapDispatchToProps = (dispatch) => {
         getWeather:(city)=>{
             dispatch(getWeatherThunk(city))
         },
-        ImagesCreator:(images)=>{
-            dispatch(ImagesCreator(images))
+
+        SetCityStore:(city)=>{
+            dispatch(sendCityStore(city))
         },
     }
 }
