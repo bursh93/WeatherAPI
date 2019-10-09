@@ -18,16 +18,18 @@ let initialState = {
     Data_Other: [],
     isData:false,
     cityStoreName:[{cityStore:null}],
+    cityStore2:[],
 }
 
 
 const WeatherReducer = (state = initialState, action) => {
     switch(action.type) {
         case SITY_STORE: {
-            let city=action.cityStore;
+
             return {
                 ...state,
-                cityStoreName:[...state.cityStoreName,{cityStore:city}]
+                cityStoreName:[...state.cityStoreName,{cityStore:action.cityStore}]
+
             }
         }
 

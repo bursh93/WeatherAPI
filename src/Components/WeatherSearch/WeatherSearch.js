@@ -5,18 +5,20 @@ import FormCity from "./FormCity";
 
 
 
-let CityStore=(props)=>{
+let CityStore=props=>{
     return <div>
         {props.city}
     </div>
 }
 
-let WeatherSearch = (props) => {
+
+
+
+let WeatherSearch =React.memo ((props) => {
     if (!props.DataWeather) {
-        return null
+        return "loading"
     }
 
-    let cityStoreName = props.cityStoreName.map(city => <CityStore city={city.cityStore}/>)
     let name = "Погода в " + (props.DataWeather.name) + " ";
     let country = (props.DataWeather.sys.country);
     let temp = "Температура: " + Math.round(props.DataWeather.main.temp - 273) + "с";
@@ -35,7 +37,7 @@ let WeatherSearch = (props) => {
                     </div>
                     <div className="FormWeather">
                         <FormCity   SetCityStore={props.SetCityStore} GetWeather={props.GetWeather}/>
-                        <span className="scrollStore">{cityStoreName}</span>
+
                     </div>
 
                     <div className="RightHeader">
@@ -81,7 +83,7 @@ let WeatherSearch = (props) => {
 
         </body>
     )
-}
+})
 
 
 export default WeatherSearch;

@@ -2,7 +2,11 @@ import React from "react";
 import "../../scss/main.css";
 import Slider from "react-slick";
 
-let DataOtherCityBY=(props)=> {
+let DataOtherCityBY=React.memo((props)=> {
+    if (!props) {
+        return "loading"
+    }
+
     let settings = {
         dots: true,
         infinite: true,
@@ -11,10 +15,10 @@ let DataOtherCityBY=(props)=> {
         slidesToScroll: 1
     };
 
-
+    console.log('render')
     return (<div className="WrapperCityBy">
                 <Slider {...settings}>
-                    {props.Data_Other.map(w => <div key={w.id}>
+                    {[...props.Data_Other].reverse().map(w => <div key={w.id}>
                             <div className="OtherCityBy">
                                   <span>
                                 <img src={'https://openweathermap.org/img/w/' + w.city.weather[0].icon + '.png'} alt=""/>
@@ -29,7 +33,7 @@ let DataOtherCityBY=(props)=> {
                     }
                 </Slider>
     </div>)
-}
+})
 
 
 export default DataOtherCityBY;

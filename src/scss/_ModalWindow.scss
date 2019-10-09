@@ -16,6 +16,7 @@
 
   .popup-content {
     display: flex;
+    text-align: center;
     justify-content: center;
     position: fixed;
     left: 50%;
@@ -24,14 +25,46 @@
     background: white;
     padding: 4em;
     font-size: 25px;
+
+    input{
+      display: block;
+      height: 35px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    label{
+      display: inline-block;
+      transform: translateY(40%);
+      background: white;
+      padding:5px;
+    }
+    .Registry_Button{
+      background: #1124ce;
+        font-weight: 700;
+      border: none;
+      border-radius: 20%;
+      width: 105px;
+      height: 50px;
+      outline:0;
+      &:active{
+        background: #525cff;
+      }
+    }
+
   }
   .popup-close {
-    width: 35px;
-    height: 45px;
     position: absolute;
     top: 0;
-    right: -35px;
-    background-color: transparent;
+    right: 0;
+    width: 30px;
+    outline:0;
+    font-weight: 800;
+    font-size: 30px;
+    border: none;
+    background: white;
     color: black;
+    &:hover {
+      background: #ababab;
+    }
   }
 }
