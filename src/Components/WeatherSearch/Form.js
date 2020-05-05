@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../scss/main.css";
 
 
@@ -6,7 +6,7 @@ import "../../scss/main.css";
 
 
 
-let Form=(props)=> {
+let Form = (props) => {
     let [editMode, setEditMode] = useState(false);
     const activeModeSearch = () => {
         setEditMode(true);
@@ -16,19 +16,19 @@ let Form=(props)=> {
         <form onSubmit={props.GetWeather}>
             {!editMode ?
                 <span onClick={activeModeSearch}>
-                            <i className="fa fa-search"></i> поиск  </span>
+                    <i className="fa fa-search"></i> поиск223123123  </span>
                 :
                 <span>
 
-                        <input
-                            type="text" name='city' placeholder='город' required/>
-                            <button>
-                                <i className="fa fa-search"></i>
-                            </button>
-                        <div className="block-info">
-                        введите любой город
+                    <input
+                        type="text" name='city' placeholder='город' required />
+                    <button>
+                        <i className="fa fa-search"></i>
+                    </button>
+                    <div className="block-info">
+                        введите любой город222
                         </div>
-                        </span>
+                </span>
             }
         </form>
 
@@ -37,4 +37,4 @@ let Form=(props)=> {
 
 }
 
-    export default Form;
+export default Form;

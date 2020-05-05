@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../scss/main.css";
 
-import {Field, reduxForm} from "redux-form";
+import { Field, reduxForm } from "redux-form";
 
 
 
-let FormGetCityWeather=(props)=>{
-    let [editMode, setEditMode] = useState(false);
+let FormGetCityWeather = (props) => {
+    let [editMode, setEditMode] = useState(true);
     const activeModeSearch = () => {
         setEditMode(true);
     };
@@ -21,43 +21,43 @@ let FormGetCityWeather=(props)=>{
 
             {!editMode ?
                 <span onClick={activeModeSearch} >
-                            <i className="fa fa-search"></i> поиск  </span>
+                    <i className="fa fa-search"></i> поиск  </span>
                 :
                 <span>
-                        <Field  component={"input"}
-                             name='city' placeholder='город' required/>
+                    <Field component={"input"}
+                        name='city' placeholder='город' required />
 
-                            <button>
-                                <i className="fa fa-search"></i>
-                            </button>
-                        <div className="block-info">
+                    <button>
+                        <i className="fa fa-search"></i>
+                    </button>
+                    <div className="block-info">
                         введите любой город
                         </div>
-                        </span>
+                </span>
             }
         </form>
 
     </div>
 }
-const WeatherCityForm=reduxForm({form:'weatherCityForm  '})(FormGetCityWeather);
+const WeatherCityForm = reduxForm({ form: 'weatherCityForm  ' })(FormGetCityWeather);
 
 
-let FormCity=(props)=> {
+let FormCity = (props) => {
 
 
 
 
-    const onSubmit=(values)=>{
+    const onSubmit = (values) => {
         props.SetCityStore(values.city)
         props.GetWeather(values.city) // weather for get request
     }
 
     return (
-        <WeatherCityForm  onSubmit={onSubmit}/>
+        <WeatherCityForm onSubmit={onSubmit} />
     )
 
 }
 
 
 
-    export default FormCity;
+export default FormCity;
